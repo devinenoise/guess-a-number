@@ -9,12 +9,12 @@ const resultsDisplay = document.getElementById('results-display');
 const guessHolder = document.getElementById('guess-holder');
 const guessDisplay = document.getElementById('guess-display');
 const guessCount = document.getElementById('guesses-remaining');
-const guessesRanOut = document.getElementById('out-of-guesses');
 
-
-// initial state
+// random number generator function
 
 let correctNumber = Math.floor(Math.random() * 20) + 1;
+
+// initial state of available tries
 
 let attempts = 4;
 
@@ -23,24 +23,28 @@ let attempts = 4;
 guessButton.addEventListener('click', () => {
     attempts--;
     guessCount.textContent = attempts;
+    // if the guess is too high
     if (compareNumbers(Number(userGuess.value), correctNumber) === 1) {
         guessDisplay.textContent = 'too high.  Try again.';
         guessHolder.classList.remove('hidden');
     }
+    // if the guess is too low
     if (compareNumbers(Number(userGuess.value), correctNumber) === -1) {
         guessDisplay.textContent = 'too low.  Try again.';
         guessHolder.classList.remove('hidden');
     }
+    // if the guess is correct
     if (compareNumbers(Number(userGuess.value), correctNumber) === 0) {
         guessDisplay.textContent = 'correct!';
         resultsHolder.classList.remove('hidden');
         guessButton.disabled = true;
         guessButton.textContent = 'Game Over';
     }
-    if (attempts === 0) {
-        guessesRanOut.classList.remove('hidden');
+    if (attempts === 0 && compareNumbers(Number(userGuess.value), correctNumber) !== 0) {
+        resultsHolder.classList.remove('hidden');
+        resultsDisplay.textContent = 'lost.';
         guessButton.disabled = true;
         guessButton.textContent = 'Game Over';
-
+        guessHolder.classList.add('hidden');
     }
 });

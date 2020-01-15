@@ -6,4 +6,4 @@ export default function compareNumbers(userGuess, correctNumber) {
     } else (userGuess > correctNumber); {
         return 1;
     }
-};
+}
