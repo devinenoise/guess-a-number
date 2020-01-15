@@ -1,3 +1,7 @@
+* {
+    font-family: sans-serif;
+}
+
 img {
     display: flex;
     margin-bottom: 30px;
@@ -7,14 +11,7 @@ img {
 .hidden {
     display: none;
     margin-top: 30px;
-    font-size: 22px;
-    text-transform: uppercase;
-}
-
-.span-display {
-    display: flex;
-    margin-left: 15px;
-    font-size: 22px;
+    font-size: 24px;
 }
 
 .maintext {
