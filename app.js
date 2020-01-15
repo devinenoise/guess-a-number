@@ -1,7 +1,7 @@
 //import compare numbers function
 import compareNumbers from './compare-numbers.js';
 
-//define DOM variables
+//DOM variables
 const guessButton = document.getElementById('guess-button');
 const userGuess = document.getElementById('user-guess');
 const resultsHolder = document.getElementById('results-holder');
@@ -9,14 +9,26 @@ const resultsDisplay = document.getElementById('results-display');
 const guessHolder = document.getElementById('guess-holder');
 const guessDisplay = document.getElementById('guess-display');
 const guessCount = document.getElementById('guesses-remaining');
+const resetButton = document.getElementById('reset-button');
 
-// random number generator function
+// random number generator with a max of 20
 
 let correctNumber = Math.floor(Math.random() * 20) + 1;
 
-// initial state of available tries
+// initial state of available attempts
 
 let attempts = 4;
+
+// reset button function
+
+resetButton.addEventListener('click', () => {
+    attempts = 4;
+    guessCount.textContent = attempts;
+    guessButton.disabled = false;
+    guessHolder.classList.add('hidden');
+    resultsHolder.classList.add('hidden');
+    guessButton.textContent = 'Press To Guess';
+});
 
 //button event listener
 

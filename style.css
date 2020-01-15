@@ -1,11 +1,9 @@
-* {
-    font-family: sans-serif;
-    
-}
 
 body {
     background-color: orange;
+    font-family: 'Ubuntu', sans-serif;  
 }
+
 
 img {
     display: flex;
@@ -24,4 +22,9 @@ img {
     margin: 24px;
     margin-top: 20px;
     font-size: 24px;
+}
+
+button input {
+    display: flex;
+    font-size: 20px;
 }
