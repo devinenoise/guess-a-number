@@ -11,15 +11,15 @@ const guessDisplay = document.getElementById('guess-display');
 const guessCount = document.getElementById('guesses-remaining');
 const resetButton = document.getElementById('reset-button');
 
-// random number generator with a max of 20
+// initilize random number generator with a max of 20
 
 let correctNumber = Math.floor(Math.random() * 20) + 1;
 
-// initial state of available attempts
+// state of available attempts
 
 let attempts = 4;
 
-//button event listener
+//guess button event listener
 
 guessButton.addEventListener('click', () => {
     attempts--;
@@ -31,7 +31,7 @@ guessButton.addEventListener('click', () => {
     }
     // if the guess is too low
     if (compareNumbers(Number(userGuess.value), correctNumber) === -1) {
-        guessDisplay.textContent = 'too low.  Try again.';
+        guessDisplay.textContent = 'too low.  Guess again.';
         guessHolder.classList.remove('hidden');
     }
     // if the guess is correct
@@ -50,7 +50,7 @@ guessButton.addEventListener('click', () => {
     }
 });
 
-// reset button function
+// reset button event listener
 
 resetButton.addEventListener('click', () => {
     attempts = 4;
