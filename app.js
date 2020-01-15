@@ -19,17 +19,6 @@ let correctNumber = Math.floor(Math.random() * 20) + 1;
 
 let attempts = 4;
 
-// reset button function
-
-resetButton.addEventListener('click', () => {
-    attempts = 4;
-    guessCount.textContent = attempts;
-    guessButton.disabled = false;
-    guessHolder.classList.add('hidden');
-    resultsHolder.classList.add('hidden');
-    guessButton.textContent = 'Press To Guess';
-});
-
 //button event listener
 
 guessButton.addEventListener('click', () => {
@@ -59,4 +48,15 @@ guessButton.addEventListener('click', () => {
         guessButton.textContent = 'Game Over';
         guessHolder.classList.add('hidden');
     }
+});
+
+// reset button function
+
+resetButton.addEventListener('click', () => {
+    attempts = 4;
+    guessCount.textContent = attempts;
+    guessButton.disabled = false;
+    guessHolder.classList.add('hidden');
+    resultsHolder.classList.add('hidden');
+    guessButton.textContent = 'Guess';
 });
