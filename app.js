@@ -22,28 +22,32 @@ let attempts = 4;
 //guess button event listener
 
 guessButton.addEventListener('click', () => {
+    console.log(correctNumber);
     attempts--;
     guessCount.textContent = attempts;
     // if the guess is too high
     if (compareNumbers(Number(userGuess.value), correctNumber) === 1) {
-        guessDisplay.textContent = 'too high.  Try again.';
+        guessDisplay.textContent = 'Your guess is too high.  Try again.';
         guessHolder.classList.remove('hidden');
     }
     // if the guess is too low
     if (compareNumbers(Number(userGuess.value), correctNumber) === -1) {
-        guessDisplay.textContent = 'too low.  Guess again.';
         guessHolder.classList.remove('hidden');
+        guessDisplay.textContent = 'Your guess is too low.  Guess again.';
     }
     // if the guess is correct
     if (compareNumbers(Number(userGuess.value), correctNumber) === 0) {
-        guessDisplay.textContent = 'correct!';
+        guessDisplay.textContent = 'Your guess is correct!';
         resultsHolder.classList.remove('hidden');
+        resultsDisplay.classList.remove('hidden');
+        resultsDisplay.textContent = 'You just won.';
         guessButton.disabled = true;
         guessButton.textContent = 'Game Over';
     }
     if (attempts === 0 && compareNumbers(Number(userGuess.value), correctNumber) !== 0) {
         resultsHolder.classList.remove('hidden');
-        resultsDisplay.textContent = 'lost.';
+        resultsDisplay.classList.remove('hidden');
+        resultsDisplay.textContent = 'You just lost.';
         guessButton.disabled = true;
         guessButton.textContent = 'Game Over';
         guessHolder.classList.add('hidden');
@@ -58,5 +62,7 @@ resetButton.addEventListener('click', () => {
     guessButton.disabled = false;
     guessHolder.classList.add('hidden');
     resultsHolder.classList.add('hidden');
+    resultsDisplay.classList.add('hidden');
     guessButton.textContent = 'Guess';
+    correctNumber = Math.floor(Math.random() * 20) + 1;
 });
