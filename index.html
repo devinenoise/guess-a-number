@@ -11,30 +11,30 @@
 </head>
 
 <body>
-    <header>
+    <header class="maintext">
         <h1>Guess A Number</h1>
     </header>
-    <section>
+    <section class="maintext">
         <p>You have four guesses to guess a number between 1 and 20. Good luck.</p>
     </section>
     <section>
         <img
             src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.vernondowns.com%2Fwp-content%2Fuploads%2Fpromos%2Fracing%2Fguess-the-number-small.jpg&f=1&nofb=1">
+        <div class="maintext">
+            <input type="number" id="user-guess" min="1" max="20" value="1">
 
-        <input type="number" id="user-guess" min="1" max="20" value="1">
-
-        <button id="guess-button" class="button">Guess</button> <button id="reset-button" class="button">Reset</button>
-
+            <button id="guess-button" class="button">Guess</button> <button id="reset-button" class="button">Reset</button>
+        </div>
         <div class="maintext">Guesses Remaining:
             <span id="guesses-remaining">4</span>
         </div>
 
-        <div class="hidden" id="guess-holder">Your guess is
-            <span id="guess-display" class="span-display">too high. Guess again.</span>
+        <div class="hidden maintext" id="guess-holder">
+            <span id="guess-display" class="span-display"></span>
         </div>
 
-        <div class="hidden" id="results-holder">You just
-            <span id="results-display" class="span-display">won!</span>
+        <div id="results-holder" class="hidden maintext">
+            <span id="results-display" class="span-display"></span>
         </div>
 
     </section>
